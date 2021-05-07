@@ -120,7 +120,8 @@ class LegalServerFields(DADict):
 
     if self.elements.get('full_mailing_address', False):
       client.mailing_address_text = self.elements.get('full_mailing_address', '')
-        
+    if self.elements.get('full_address', False):
+      client.address_text = self.elements.get('full_address', '')
     if self.elements.get('date_of_birth', False):
       client.birthdate = as_datetime(self.elements.get('date_of_birth'))
     client.email = self.elements.get('sidebar_email', '')
