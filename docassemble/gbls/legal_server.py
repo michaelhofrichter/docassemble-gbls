@@ -113,8 +113,14 @@ class LegalServerFields(DADict):
       except:
         client.address.address = self.elements.get('full_address', '')
         client.address.geocode(self.elements.get('full_address', ''))
+      
+
     except:
       pass
+
+    if self.elements.get('full_mailing_address', False):
+      client.mailing_address_text = self.elements.get('full_mailing_address', '')
+        
     if self.elements.get('date_of_birth', False):
       client.birthdate = as_datetime(self.elements.get('date_of_birth'))
     client.email = self.elements.get('sidebar_email', '')
